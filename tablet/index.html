@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>THE SHOWCASE — 2026</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DK1DBWE0DG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DK1DBWE0DG');
+</script>
+</head>
+<body>
+<div id="screensaver-container" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background: black; cursor: pointer;">
+    <video id="ss-video" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+    <img id="ss-img" src="" style="width: 100%; height: 100%; object-fit: cover; display: none;">
+</div>
+<header class="site-header">
+    <div class="nav-meta">
+        <span class="meta-tag">Web Dev / Interactive</span>
+        <span class="meta-tag">Class of 2026</span>
+    </div>
+    
+    <div class="title-block">
+        <h1 class="main-title">Project <em>Showcase</em></h1>
+    </div>
+
+<div class="search-container">
+    <input type="text" id="projectSearch" placeholder="SEARCH PROJECTS OR NAMES..." autocomplete="off">
+</div>
+</header>
+
+    <main id="projectGrid" class="elegant-grid"></main>
+
+    <footer class="site-footer">
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
