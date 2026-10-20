@@ -1,0 +1,199 @@
+:root {
+    --bg: #ffffff;
+    --text: #000000;
+    --dim: #7a7a7a;
+    --border: #000000;
+    --accent: #0B8261; 
+    --card-bg: #f9f9f9;
+}
+
+body {
+    margin: 0; padding: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+.page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10vh 4vw;
+}
+
+.marquee {
+    text-align: left;
+    margin-bottom: 4rem;
+    border-left: 4px solid var(--border);
+    padding-left: 2.5rem;
+}
+
+.marquee-top {
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    color: var(--dim);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+h1 {
+    font-size: clamp(4rem, 15vw, 10rem);
+    font-weight: 900;
+    line-height: 0.8;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+h1 em {
+    font-family: "Georgia", serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+    text-transform: lowercase;
+}
+
+.marquee-subtitle {
+    font-size: 1.1rem;
+    font-family: "Georgia", serif;
+    font-style: italic;
+    color: var(--dim);
+    margin-top: 2rem;
+    letter-spacing: 0.1em;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+.action-card {
+    background: var(--card-bg);
+    padding: 5rem 2rem;
+    text-decoration: none;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.action-card::after {
+    content: '';
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent);
+    transition: bottom 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+}
+
+.action-card:hover {
+    border-color: var(--accent);
+}
+
+.action-card:hover::after {
+    bottom: 0;
+}
+
+.card-num {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.72); 
+    margin-bottom: 0.5rem;
+    z-index: 2;
+    transition: color 0.3s ease;
+    letter-spacing: -3px;
+}
+
+.action-card:hover .card-num {
+    color: rgb(255, 255, 255);
+}
+
+.card-label {
+    font-size: 0.85rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+.action-card:hover .card-label {
+    color: #ffffff;
+}
+
+.team-section {
+    margin-top: 12rem;
+}
+
+.team-heading {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    color: var(--dim);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 1rem;
+    margin-bottom: 4rem;
+}
+
+.credits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 4rem;
+}
+
+.credit-item {
+    border-left: 2px solid var(--accent);
+    padding-left: 1.5rem;
+}
+
+.item-id {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--accent);
+}
+
+.item-name {
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0.5rem 0;
+    letter-spacing: -0.04em;
+}
+
+.item-role {
+    font-family: "Georgia", serif;
+    font-style: italic;
+    color: var(--dim);
+}
+
+.footer-meta {
+    margin-top: 10rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    font-weight: 900;
+    color: var(--dim);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.fade-in {
+    animation: reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes reveal {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
