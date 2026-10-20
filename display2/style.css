@@ -1,0 +1,170 @@
+:root {
+    --bg-paper: #ffffff; 
+    --text-main: #000000;
+    --text-dim: #7a7a7a;
+    --border: #000000;
+    --accent: #0B8261; /* Emerald Green */
+}
+
+body, html {
+    margin: 0; padding: 0;
+    width: 100vw; height: 100vh;
+    background-color: var(--bg-paper);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- ADDED: HUGE GHOST NUMBER BACKGROUND --- */
+#info-container::before {
+    content: "№ 01"; /* You can sync this via JS if needed */
+    position: absolute;
+    bottom: -5vw;
+    right: 2vw;
+    font-size: 35vw;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.03);
+    z-index: -1;
+    pointer-events: none;
+    letter-spacing: -0.05em;
+}
+
+#screensaver-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 1;
+}
+
+#ss-video, #ss-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.overlay {
+    position: fixed;
+    top: 0; left: 0; 
+    width: 100vw; height: 100vh;
+    z-index: 2;
+    /* Deepened the gradient for better text pop */
+
+    transition: opacity 0.8s ease-in-out;
+}
+
+#info-container {
+    position: relative;
+    z-index: 10;
+    width: 100vw; 
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10%; /* Slightly more breathing room */
+    box-sizing: border-box;
+}
+
+.content-wrapper {
+    width: 48vw;
+    position: relative;
+}
+
+.meta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Align to bottom of text */
+    border-bottom: 4px solid var(--border); /* Thicker line */
+    padding-bottom: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+#proj-id {
+    font-size: 2.5rem; /* Bigger impact */
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 0.8;
+    letter-spacing: -2px;
+}
+
+.label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-weight: 800;
+    color: var(--text-dim);
+}
+
+h1 {
+    font-size: clamp(4rem, 12vw, 9rem);
+    font-weight: 900;
+    line-height: 0.8;
+    letter-spacing: -0.06em;
+    margin: 0 0 2.5rem 0;
+    text-transform: uppercase;
+}
+
+/* --- ADDED: ACCENT VERTICAL BAR FOR DESCRIPTION --- */
+#proj-description {
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.2;
+    max-width: 90%;
+    margin: 0 0 4rem 0;
+    color: #1a1a1a;
+    font-family: "Georgia", serif;
+    font-style: italic;
+    padding-left: 2rem;
+    border-left: 2px solid var(--accent); /* Emerald anchor line */
+}
+
+#proj-tech {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 15px;
+    padding: 0;
+}
+
+#proj-tech li {
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: 1px solid var(--border);
+    padding: 10px 20px;
+    background: white;
+    /* --- ADDED: CHIC OFFSET SHADOW --- */
+    box-shadow: 4px 4px 0px var(--accent);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#proj-tech li:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--border);
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.is-screensaver .content-wrapper,
+.is-screensaver .overlay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.fade-in {
+    animation: chicReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes chicReveal {
+    from { 
+        opacity: 0; 
+        transform: translateX(-50px) skewX(-4deg); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(0) skewX(0); 
+    }
+}
